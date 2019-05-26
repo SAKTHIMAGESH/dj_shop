@@ -1,0 +1,16 @@
+{%extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% for prn in name %}
+{{ prn }}
+{# {% for pr in prn %}
+{{pr}}
+{% endfor %} #}
+<br>
+{% endfor %}
+{% for img1 in im %}
+{{ img1 }}
+<img src='{{ img1 }}'></img>
+{% endfor %}
+
+{% endblock %}

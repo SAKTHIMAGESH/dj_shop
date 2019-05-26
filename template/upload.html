@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block content %}
+  <form method="post" enctype="multipart/form-data">
+    {{form|crispy}}
+    {% csrf_token %}
+ Product Image  <input type="file" name="myfile">
+ <br><br><br>
+    <center>
+<input type="submit" value="Add" class="btn btn-primary">
+  </center></form>
+
+
+ {% endblock %}

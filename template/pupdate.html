@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form method="POST">
+	{% csrf_token %}
+	{{ form|crispy }}
+	<br>
+	<br><div class="form-row">
+<div class="form-group col-md-4 mb-0">
+	<input type="submit" class="btn btn-primary" name="update">
+	</div><div class="form-group col-md-2 mb-0"><input type="reset" class="btn btn-primary" name="Reset"></div>
+</div>
+</form>
+{% endblock %}
