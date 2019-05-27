@@ -37,7 +37,7 @@ class PasswordUpdate(forms.Form):
 
 class AddProduct(forms.Form):
 	productname=forms.CharField()
-	productprice=forms.DecimalField(max_digits=2)
+	productprice=forms.DecimalField(max_digits=5)
 	productdescription=forms.CharField(widget=forms.Textarea)
 # class DocumentForm(forms.ModelForm):
 #     class Meta:

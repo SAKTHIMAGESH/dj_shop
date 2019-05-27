@@ -16,13 +16,16 @@ def board_topics(request, pk):
         raise Http404
     return render(request, 'topics.html', {'board': board})
 
-def home1(request):
+def home1(request):	
+	# if request.session['user']=="Anonyms":
+	# 	return redirect('login')
+	print(request.session['user'])
 	if 'logout' in request.POST:
 		print("session destroyed")
 		# del request.sesssion['mail']
 		del request.session['user']
 		return redirect('login')
-	return render(request,"index.html",{"user":request.session['user']})
+	return render(request,"index.html",{"user1":request.session['user']})
 
 def admin1(request):
 	return render(request,"admin.html",{})
@@ -104,7 +107,7 @@ def add(request):
     	db=MySQLdb.connect(host="127.0.0.1",user="root",passwd="",db="register",port=3306)
     	c=db.cursor()
     	c.execute("""INSERT INTO product (pr_na, pr_pr, pr_de, pr_im)
-    	 VALUES (%s,%s,%s,%s)""",(productname,1000,productdescription,uploaded_file_url,))
+    	 VALUES (%s,%s,%s,%s)""",(productname,productprice,productdescription,uploaded_file_url,))
     	c.close()
     	db.commit()
     	db.close()
